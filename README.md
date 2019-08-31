@@ -1,10 +1,10 @@
 # Ruby Workshop
 
-Ruby is a dynamic programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.
+This is a brief Ruby guide, made with ♥.
 
 ## Installation
 
-We'll install Ruby with some dependencies we might need provided that we're going to be working with Rails.
+We'll install Ruby with some dependencies which we might need provided that we work with Rails.
 
 - MAC OSX.
 
@@ -316,6 +316,97 @@ We also got rid of the `name` variable because we no longer need it.
 - By convention, method names should be in snake_case (lowercase with underscores)
 - By convention, methods ending with `?` such as `even?` and `start_with?` return a Boolean
 
+
+## Flow Control
+
+Conditionals and loops change the flow of a Ruby program. Conditionals allow us to execute a certain chunk of code under a specific condition. Loops allow us to execute a chunk of code multiple times. When the program is run, the code is executed from top to bottom, line by line, which is how you should debug in your head.
+
+### Conditionals (If/Unless)
+
+#### If
+
+If conditionals allow us to execute a certain chunk of code if a condition is "thruthy".
+
 ```ruby
-# Don't worry. This is not the end, I'm finishing this guide with more Ruby.
+if condition
+  # code executed only when condition is "truthy"
+end
+```
+
+#### If/Else
+
+If/Else conditionals allow us to execute a certain chunk of code if a condition is "thruthy" **or** another chunk of code if the same condition is **not** "truthy".
+
+```ruby
+if condition
+  # code executed only when condition is "truthy"
+else
+  # code executed only when condition is not "truthy"
+end
+```
+
+For example, a small Ruby program that checks if you are old enough to vote:
+
+```ruby
+puts "How old are you?"
+age = gets.chomp.to_i
+
+if age >= 18
+  puts "You can vote!"
+else
+  puts "You cannot vote!"
+end
+```
+
+### Simple loops
+
+#### While
+
+While loops allow us to execute a chunk of code multiple times while a condition is "truthy".
+
+```ruby
+while condition
+  # executed while condition is truthy
+end
+```
+
+For example, a small Ruby program that replicates the 'Price is Right' game.
+
+```ruby
+price_to_find = rand(1..5)
+choice = 0 # or `nil`
+
+while (choice != price_to_find)
+  puts "How much (between 1 and 5)?"
+  choice = gets.chomp.to_i
+end
+
+puts "You won!"
+```
+
+#### Until
+
+Ruby until loop will executes the statements or code till the given condition evaluates to true. Basically it’s just opposite to the while loop.
+
+```ruby
+price_to_find = rand(1..5)
+choice = 0 # or `nil`
+
+until (choice == price_to_find)
+  puts "How much (between 1 and 5)?"
+  choice = gets.chomp.to_i
+end
+
+puts "You won!"
+```
+
+#### Do While
+do while loop is similar to while loop with the only difference that it checks the condition after executing the statement.
+
+```ruby
+loop do
+  puts "Enter a number"
+  choice = gets.chomp.to_i
+  break if choice == 3  
+end
 ```
