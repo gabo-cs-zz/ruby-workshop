@@ -476,3 +476,44 @@ show_info(p1, p2)
 puts "LETS FIGHT!"
 fight(p1, p2)
 ```
+
+## More stuff...
+
+
+#### Symbols
+A symbol looks like a variable name but it's prefixed with a colon. Examples - **:action**, **:line_items**. You don't have to pre-declare a symbol and they are guaranteed to be unique.
+
+Symbols are useful because a given symbol name refers to the same object throughout a Ruby program. Symbols are more efficient than strings. Two strings with the same contents are two different objects, but for any given name there is only one Symbol object. This can save both time and memory.
+
+```ruby
+puts "hello".object_id    # => 47162963749260
+puts "hello".object_id    # => 47162963748520
+puts :hello.object_id     # => 872028
+puts :hello.object_id     # => 872028
+```
+
+####  Hash
+A Hash is a dictionary-like collection of unique keys and their values. Also called associative arrays, they are similar to Arrays, but where an Array uses integers as its index, a Hash allows you to use any object type.
+
+Hashes enumerate their values in the order that the corresponding keys were inserted.
+
+A Hash can be easily created by using its implicit form:
+```ruby
+grades = { "Jane Doe" => 10, "Jim Doe" => 6 }
+```
+Hashes allow an alternate syntax form when your keys are always symbols. Instead of
+
+```ruby
+options = { :font_size => 10, :font_family => "Arial" }
+```
+
+You could write it as:
+```ruby
+options = { font_size: 10, font_family: "Arial" }
+```
+
+Each named key is a symbol you can access in hash:
+
+```ruby
+options[:font_size]  # => 10
+```
